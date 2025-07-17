@@ -1,0 +1,220 @@
+/* CSS Variables for Theme Management */
+:root {
+  /* Light theme + Tic Tac Toe palette */
+  --primary: #1976d2;
+  --accent: #ff9800;
+  --secondary: #ffffff;
+
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8f9fa;
+  --text-primary: #222c36;
+  --text-secondary: #1976d2;
+  --border-color: #e9ecef;
+  --button-bg: #1976d2;
+  --button-text: #ffffff;
+  --square-size: clamp(80px, 18vw, 120px);
+  --square-gap: 14px;
+  --score-bg: #eaf3fc;
+  --highlight: #ff9800;
+}
+
+/*
+ * Modern, minimal styles for Tic Tac Toe
+ */
+
+body {
+  margin: 0;
+  background: var(--bg-primary);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  color: var(--text-primary);
+}
+
+.tic-tac-toe-app {
+  min-height: 100vh;
+  min-width: 100vw;
+  background: var(--bg-primary);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 5vh;
+  box-sizing: border-box;
+}
+
+.scoreboard-container {
+  margin-bottom: 2.5vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.scoreboard {
+  background: var(--score-bg);
+  border-radius: 14px;
+  box-shadow: 0 2px 10px rgba(34, 44, 54, 0.02);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.7em;
+  padding: 0.9em 2.7em;
+  font-size: 1.14rem;
+  margin-bottom: 2vh;
+}
+
+.scoreboard .score {
+  color: var(--text-primary);
+  min-width: 62px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.scoreboard .x-score span {
+  color: var(--primary);
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+.scoreboard .o-score span {
+  color: var(--accent);
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+.scoreboard .draws span {
+  color: #999;
+  font-size: 1.1rem;
+}
+
+.game-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.status {
+  margin-bottom: 1.5em;
+  font-size: 1.3rem;
+  color: var(--primary);
+  letter-spacing: 1px;
+  font-weight: 600;
+  min-height: 2.2em;
+}
+
+.board {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: var(--secondary);
+  border-radius: 16px;
+  padding: var(--square-gap);
+  box-shadow: 0 3px 12px 0 rgba(20,30,60,0.05);
+}
+
+.board-row {
+  display: flex;
+  gap: var(--square-gap);
+}
+
+.square {
+  background: var(--bg-primary);
+  border: 2.2px solid var(--border-color);
+  border-radius: 8px;
+  width: var(--square-size);
+  height: var(--square-size);
+  font-size: 2.2rem;
+  color: var(--primary);
+  font-weight: 700;
+  cursor: pointer;
+  outline: none;
+  transition: border 0.2s, background 0.2s, color 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  box-shadow: 0 1px 5px 0 rgba(44,54,64,0.05);
+  user-select: none;
+}
+
+.square.highlight {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+.square:focus {
+  border-color: var(--primary);
+}
+
+.controls {
+  margin-top: 2.5em;
+  display: flex;
+  gap: 1.6em;
+  justify-content: center;
+}
+
+.control-btn {
+  background: var(--primary);
+  color: var(--secondary);
+  border: none;
+  border-radius: 9px;
+  padding: 0.7em 2.2em;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 1px 6px 0 rgba(30,40,60,0.09);
+  transition: background 0.17s, box-shadow 0.18s;
+}
+
+.control-btn:hover,
+.control-btn:focus {
+  background: var(--accent);
+  color: #fff;
+  outline: none;
+  box-shadow: 0 2px 12px 0 rgba(255,152,0,0.08);
+}
+
+@media (max-width: 600px) {
+  .tic-tac-toe-app {
+    padding-top: 1vh;
+  }
+  .scoreboard {
+    font-size: 0.92rem;
+    padding: 0.7em 0.8em;
+    gap: 0.85em;
+  }
+  .game-area {
+    width: 100vw;
+  }
+  .board {
+    padding: 2.5vw;
+  }
+  .square {
+    width: 18vw;
+    height: 18vw;
+    font-size: 1.6rem;
+  }
+  .controls {
+    gap: 0.7em;
+    flex-direction: column;
+    width: 99vw;
+    align-items: center;
+  }
+}
+
+@media (max-width: 400px) {
+  .square {
+    width: 20vw;
+    height: 20vw;
+    font-size: 1.2rem;
+  }
+}
+
+/* Hide default theme toggle, logo, and links from old template */
+.App-logo,
+.theme-toggle,
+.App-link,
+.App-header {
+  display: none !important;
+}

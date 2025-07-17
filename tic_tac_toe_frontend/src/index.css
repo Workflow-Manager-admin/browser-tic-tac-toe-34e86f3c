@@ -1,0 +1,21 @@
+/* Reset, base body, and custom scrollbar for Tic Tac Toe app */
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #fff;
+  color: #222c36;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+/* Remove outline on buttons for mouse users but keep for keyboard focus */
+button:focus:not(:focus-visible) {
+  outline: none;
+}
